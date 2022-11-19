@@ -4,11 +4,15 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
 - task: CopyFiles@2
   inputs:
-    sourceFolder: '$(Build.SourcesDirectory)'/terraform/
-    contents: '**/$(BuildConfiguration)/**/?(*.tf)'
-    targetFolder: '$(Build.ArtifactStagingDirectory)'
+    SourceFolder: '$(Build.SourcesDirectory)'/terraform/
+    Contents: '**/$(BuildConfiguration)/**/?(*.tf)'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
   inputs:
