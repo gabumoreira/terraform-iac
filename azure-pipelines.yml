@@ -10,7 +10,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)'/terraform/
+    SourceFolder: '$(Build.SourcesDirectory)/terraform'
     Contents: '**/$(BuildConfiguration)/**/?(*.tf)'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
