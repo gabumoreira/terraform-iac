@@ -42,7 +42,7 @@ steps:
     environmentServiceNameAWS: 'terraform-mack-app-us-east-1'
 - task: TerraformTaskV3@3
   displayName: terraform destroy
-  enabled: true
+  enabled: false
   inputs:
     provider: 'aws'
     command: 'destroy'
