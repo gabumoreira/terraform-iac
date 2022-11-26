@@ -31,12 +31,6 @@ resource "aws_instance" "app_server" {
   ]
 }
 
-resource "aws_key_pair" "chave" {
-  key_name   = var.chave
-  public_key = file("${var.chave}.pub")
-
-}
-
 output "IP_Publico" {
   value = aws_instance.app_server.public_ip
 }
