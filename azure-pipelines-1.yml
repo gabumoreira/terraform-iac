@@ -33,3 +33,9 @@ steps:
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/env/dev'
     environmentServiceNameAWS: 'terraform-mack-app-us-east-1'
+- task: TerraformTaskV3@3
+  inputs:
+    provider: 'aws'
+    command: 'destroy'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/env/dev'
+    environmentServiceNameAWS: 'terraform-mack-app-us-east-1'
