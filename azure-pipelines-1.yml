@@ -16,6 +16,7 @@ steps:
     terraformVersion: 'latest'
 - task: TerraformTaskV3@3
   displayName: terraform init
+  enabled: true
   inputs:
     provider: 'aws'
     command: 'init'
@@ -25,6 +26,7 @@ steps:
     backendAWSKey: 'tf/terraform.ftstate'
 - task: TerraformTaskV3@3
   displayName: terraform plan
+  enabled: true
   inputs:
     provider: 'aws'
     command: 'plan'
@@ -32,6 +34,7 @@ steps:
     environmentServiceNameAWS: 'terraform-mack-app-us-east-1'
 - task: TerraformTaskV3@3
   displayName: terraform apply
+  enabled: true
   inputs:
     provider: 'aws'
     command: 'apply'
@@ -39,6 +42,7 @@ steps:
     environmentServiceNameAWS: 'terraform-mack-app-us-east-1'
 - task: TerraformTaskV3@3
   displayName: terraform destroy
+  enabled: true
   inputs:
     provider: 'aws'
     command: 'destroy'
