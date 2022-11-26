@@ -17,19 +17,19 @@ steps:
   inputs:
     provider: 'aws'
     command: 'init'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/env/dev'
-    backendServiceAWS: 'terraform-mack-app-us-east-1'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/env/dev'
+    backendServiceAWS: 'terraform-app-us-east-1'
     backendAWSBucketName: 'terraform-bucket-mack-us-east-1'
     backendAWSKey: 'tf/terraform.ftstate'
 - task: TerraformTaskV3@3
   inputs:
     provider: 'aws'
     command: 'plan'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/env/dev'
-    environmentServiceNameAWS: 'terraform-mack-app-us-east-1'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/env/dev'
+    environmentServiceNameAWS: 'terraform-app-us-east-1'
 - task: TerraformTaskV3@3
   inputs:
     provider: 'aws'
     command: 'apply'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/env/dev'
-    environmentServiceNameAWS: 'terraform-mack-app-us-east-1'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/env/dev'
+    environmentServiceNameAWS: 'terraform-app-us-east-1'
