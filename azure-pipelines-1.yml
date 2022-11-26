@@ -11,9 +11,11 @@ pool:
 
 steps:
 - task: TerraformInstaller@0
+  displayName: Instalação Terraform
   inputs:
     terraformVersion: 'latest'
 - task: TerraformTaskV3@3
+  displayName: terraform init
   inputs:
     provider: 'aws'
     command: 'init'
@@ -22,18 +24,21 @@ steps:
     backendAWSBucketName: 'gabu-terraform-bucket-mack-us-east-1'
     backendAWSKey: 'tf/terraform.ftstate'
 - task: TerraformTaskV3@3
+  displayName: terraform plan
   inputs:
     provider: 'aws'
     command: 'plan'
     workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/env/dev'
     environmentServiceNameAWS: 'terraform-mack-app-us-east-1'
 - task: TerraformTaskV3@3
+  displayName: terraform apply
   inputs:
     provider: 'aws'
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/terraform/env/dev'
     environmentServiceNameAWS: 'terraform-mack-app-us-east-1'
 - task: TerraformTaskV3@3
+  displayName: terraform destroy
   inputs:
     provider: 'aws'
     command: 'destroy'
