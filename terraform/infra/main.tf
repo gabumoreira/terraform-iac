@@ -17,7 +17,6 @@ provider "aws" {
 resource "aws_instance" "app_server" {
   ami           = "ami-0076b30a832c25ac4"
   instance_type = var.instancia
-  key_name      = var.chave
 
   vpc_security_group_ids = [
     aws_security_group.full_access.id
@@ -29,12 +28,6 @@ resource "aws_instance" "app_server" {
   depends_on = [
     aws_security_group.full_access
   ]
-}
-
-resource "aws_key_pair" "chave" {
-  key_name   = var.chave
-  public_key = file("${var.chave}.pub")
-
 }
 
 output "IP_Publico" {
