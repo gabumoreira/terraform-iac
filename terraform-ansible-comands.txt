@@ -1,0 +1,5 @@
+$ cd terraform/env/dev
+$ terraform init
+$ terraform plan
+$ terraform apply
+$ ansible-playbook -i hosts.yml --private-key=terra-dev.pem playbook.yml
