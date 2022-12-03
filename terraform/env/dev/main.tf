@@ -5,6 +5,6 @@ module "aws-dev" {
   key_name   = "terra-dev"
 }
 
-output "IP" {
+output "INSTANCE_IP" {
   value = module.aws-dev.IP_Publico 
 }
